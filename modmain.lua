@@ -1,58 +1,58 @@
 PrefabFiles = {
-	"esctemplate",
-	"esctemplate_none",
+	"faye",
+	"faye_none",
 }
 
 Assets = {
-    Asset( "IMAGE", "images/saveslot_portraits/esctemplate.tex" ),
-    Asset( "ATLAS", "images/saveslot_portraits/esctemplate.xml" ),
+    Asset( "IMAGE", "images/saveslot_portraits/faye.tex" ),
+    Asset( "ATLAS", "images/saveslot_portraits/faye.xml" ),
 
-    Asset( "IMAGE", "images/selectscreen_portraits/esctemplate.tex" ),
-    Asset( "ATLAS", "images/selectscreen_portraits/esctemplate.xml" ),
+    Asset( "IMAGE", "images/selectscreen_portraits/faye.tex" ),
+    Asset( "ATLAS", "images/selectscreen_portraits/faye.xml" ),
 	
-    Asset( "IMAGE", "images/selectscreen_portraits/esctemplate_silho.tex" ),
-    Asset( "ATLAS", "images/selectscreen_portraits/esctemplate_silho.xml" ),
+    Asset( "IMAGE", "images/selectscreen_portraits/faye_silho.tex" ),
+    Asset( "ATLAS", "images/selectscreen_portraits/faye_silho.xml" ),
 
-    Asset( "IMAGE", "bigportraits/esctemplate.tex" ),
-    Asset( "ATLAS", "bigportraits/esctemplate.xml" ),
+    Asset( "IMAGE", "bigportraits/faye.tex" ),
+    Asset( "ATLAS", "bigportraits/faye.xml" ),
 	
-	Asset( "IMAGE", "images/map_icons/esctemplate.tex" ),
-	Asset( "ATLAS", "images/map_icons/esctemplate.xml" ),
+	Asset( "IMAGE", "images/map_icons/faye.tex" ),
+	Asset( "ATLAS", "images/map_icons/faye.xml" ),
 	
-	Asset( "IMAGE", "images/avatars/avatar_esctemplate.tex" ),
-    Asset( "ATLAS", "images/avatars/avatar_esctemplate.xml" ),
+	Asset( "IMAGE", "images/avatars/avatar_faye.tex" ),
+    Asset( "ATLAS", "images/avatars/avatar_faye.xml" ),
 	
-	Asset( "IMAGE", "images/avatars/avatar_ghost_esctemplate.tex" ),
-    Asset( "ATLAS", "images/avatars/avatar_ghost_esctemplate.xml" ),
+	Asset( "IMAGE", "images/avatars/avatar_ghost_faye.tex" ),
+    Asset( "ATLAS", "images/avatars/avatar_ghost_faye.xml" ),
 	
-	Asset( "IMAGE", "images/avatars/self_inspect_esctemplate.tex" ),
-    Asset( "ATLAS", "images/avatars/self_inspect_esctemplate.xml" ),
+	Asset( "IMAGE", "images/avatars/self_inspect_faye.tex" ),
+    Asset( "ATLAS", "images/avatars/self_inspect_faye.xml" ),
 	
-	Asset( "IMAGE", "images/names_esctemplate.tex" ),
-    Asset( "ATLAS", "images/names_esctemplate.xml" ),
+	Asset( "IMAGE", "images/names_faye.tex" ),
+    Asset( "ATLAS", "images/names_faye.xml" ),
 	
-	Asset( "IMAGE", "images/names_gold_esctemplate.tex" ),
-    Asset( "ATLAS", "images/names_gold_esctemplate.xml" ),
+	Asset( "IMAGE", "images/names_gold_faye.tex" ),
+    Asset( "ATLAS", "images/names_gold_faye.xml" ),
 }
 
-AddMinimapAtlas("images/map_icons/esctemplate.xml")
+AddMinimapAtlas("images/map_icons/faye.xml")
 
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
 
 -- The character select screen lines
-STRINGS.CHARACTER_TITLES.esctemplate = "The Sample Character"
-STRINGS.CHARACTER_NAMES.esctemplate = "Esc"
-STRINGS.CHARACTER_DESCRIPTIONS.esctemplate = "*Perk 1\n*Perk 2\n*Perk 3"
-STRINGS.CHARACTER_QUOTES.esctemplate = "\"Quote\""
-STRINGS.CHARACTER_SURVIVABILITY.esctemplate = "Slim"
+STRINGS.CHARACTER_TITLES.faye = "The Sample Character"
+STRINGS.CHARACTER_NAMES.faye = "Esc"
+STRINGS.CHARACTER_DESCRIPTIONS.faye = "*Perk 1\n*Perk 2\n*Perk 3"
+STRINGS.CHARACTER_QUOTES.faye = "\"Quote\""
+STRINGS.CHARACTER_SURVIVABILITY.faye = "Slim"
 
 -- Custom speech strings
-STRINGS.CHARACTERS.ESCTEMPLATE = require "speech_esctemplate"
+STRINGS.CHARACTERS.FAYE = require "speech_faye"
 
 -- The character's name as appears in-game 
-STRINGS.NAMES.ESCTEMPLATE = "Esc"
-STRINGS.SKIN_NAMES.esctemplate_none = "Esc"
+STRINGS.NAMES.FAYE = "Esc"
+STRINGS.SKIN_NAMES.faye_none = "Esc"
 
 -- The skins shown in the cycle view window on the character select screen.
 -- A good place to see what you can put in here is in skinutils.lua, in the function GetSkinModes
@@ -67,4 +67,4 @@ local skin_modes = {
 }
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
-AddModCharacter("esctemplate", "FEMALE", skin_modes)
+AddModCharacter("faye", "FEMALE", skin_modes)
