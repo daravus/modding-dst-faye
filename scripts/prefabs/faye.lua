@@ -5,8 +5,8 @@ local assets = {
 }
 
 -- Your character's stats
-TUNING.FAYE_HEALTH = 150
-TUNING.FAYE_HUNGER = 150
+TUNING.FAYE_HEALTH = 200
+TUNING.FAYE_HUNGER = 200
 TUNING.FAYE_SANITY = 200
 
 -- Custom starting inventory
@@ -25,6 +25,17 @@ local prefabs = FlattenTree(start_inv, true)
 
 -- When the character is revived from human
 local function onbecamehuman(inst)
+
+	inst.components.locomotor.walkspeed = 6
+	inst.components.locomotor.runspeed = 10
+	
+	local light = inst.entity:AddLight()
+	inst.Light:Enable(true)
+	inst.Light:SetRadius(5)
+	inst.Light:SetFalloff(1)
+	inst.Light:SetIntensity(.5)
+    inst.Light:SetColour(180/255, 195/255, 150/255)
+
 	-- Set speed when not a ghost (optional)
 	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "faye_speed_mod", 1)
 end
@@ -47,8 +58,22 @@ local function onload(inst)
 end
 
 
+local function updatelight(inst, phase)
+    if phase == "day" then
+        inst.Light:Enable(false) 
+    else
+        inst.Light:Enable(true)
+    end
+end
+
+
 -- This initializes for both the server and client. Tags can be added here.
-local common_postinit = function(inst) 
+local common_postinit = function(inst)
+
+	inst:WatchWorldState("phase", updatelight)
+
+    updatelight(inst, TheWorld.state.phase)
+	
 	-- Minimap icon
 	inst.MiniMapEntity:SetIcon( "faye.tex" )
 end
@@ -58,11 +83,7 @@ local master_postinit = function(inst)
 	-- Set starting inventory
     inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
 	
-	-- choose which sounds this character will play
-	inst.soundsname = "willow"
-	
-	-- Uncomment if "wathgrithr"(Wigfrid) or "webber" voice is used
-    --inst.talker_path_override = "dontstarve_DLC001/characters/"
+	inst.soundsname = "Willow"
 	
 	-- Stats	
 	inst.components.health:SetMaxHealth(TUNING.FAYE_HEALTH)
@@ -71,10 +92,13 @@ local master_postinit = function(inst)
 	
 	-- Damage multiplier (optional)
     inst.components.combat.damagemultiplier = 1
+
+	inst.components.locomotor.walkspeed = 6
+	inst.components.locomotor.runspeed = 10
 	
 	-- Hunger rate (optional)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
-	
+
 	inst.OnLoad = onload
     inst.OnNewSpawn = onload
 	
