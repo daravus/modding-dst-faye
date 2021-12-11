@@ -115,8 +115,8 @@
         <file id="6" name="arm_lower/arm_lower-6.png" width="80" height="50" pivot_x="0.709368" pivot_y="0.65301"/>
     </folder>
     <folder id="8" name="arm_upper">
-        <file id="0" name="arm_upper/arm_upper-0.png" width="50" height="80" pivot_x="0.512493" pivot_y="0.732506"/>
-        <file id="1" name="arm_upper/arm_upper-1.png" width="80" height="80" pivot_x="0.532181" pivot_y="0.739693"/>
+        <file id="0" name="arm_upper/arm_upper-0.png" width="80" height="80" pivot_x="0.512493" pivot_y="0.732506"/>
+        <file id="1" name="arm_upper/arm_upper-1.png" width="60" height="60" pivot_x="0.532181" pivot_y="0.739693"/>
         <file id="2" name="arm_upper/arm_upper-2.png" width="80" height="60" pivot_x="0.503743" pivot_y="0.710631"/>
         <file id="3" name="arm_upper/arm_upper-3.png" width="60" height="60" pivot_x="0.524681" pivot_y="0.731256"/>
         <file id="4" name="arm_upper/arm_upper-4.png" width="50" height="80" pivot_x="0.495619" pivot_y="0.605943"/>

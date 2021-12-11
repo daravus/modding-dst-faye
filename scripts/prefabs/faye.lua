@@ -4,11 +4,6 @@ local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
 }
 
--- Your character's stats
-TUNING.FAYE_HEALTH = 200
-TUNING.FAYE_HUNGER = 200
-TUNING.FAYE_SANITY = 200
-
 -- Custom starting inventory
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.FAYE = {
 	"flint",
@@ -30,11 +25,11 @@ local function onbecamehuman(inst)
 	inst.components.locomotor.runspeed = 10
 	
 	local light = inst.entity:AddLight()
-	inst.Light:Enable(true)
+	inst.Light:Enable(false)
 	inst.Light:SetRadius(5)
-	inst.Light:SetFalloff(1)
-	inst.Light:SetIntensity(.5)
-    inst.Light:SetColour(180/255, 195/255, 150/255)
+	inst.Light:SetFalloff(1) -- (.75)
+	inst.Light:SetIntensity(.5) -- (.9)
+    inst.Light:SetColour(180/255, 195/255, 150/255) -- (235 / 255, 121 / 255, 12 / 255)
 
 	-- Set speed when not a ghost (optional)
 	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "faye_speed_mod", 1)
@@ -67,41 +62,28 @@ local function updatelight(inst, phase)
 end
 
 
--- This initializes for both the server and client. Tags can be added here.
 local common_postinit = function(inst)
 
-	inst:WatchWorldState("phase", updatelight)
-
-    updatelight(inst, TheWorld.state.phase)
+    -- updatelight(inst, TheWorld.state.phase)
 	
 	-- Minimap icon
-	inst.MiniMapEntity:SetIcon( "faye.tex" )
+	-- inst.MiniMapEntity:SetIcon( "faye.tex" )
 end
 
--- This initializes for the server only. Components are added here.
 local master_postinit = function(inst)
-	-- Set starting inventory
     inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
-	
 	inst.soundsname = "Willow"
-	
-	-- Stats	
-	inst.components.health:SetMaxHealth(TUNING.FAYE_HEALTH)
-	inst.components.hunger:SetMax(TUNING.FAYE_HUNGER)
-	inst.components.sanity:SetMax(TUNING.FAYE_SANITY)
-	
-	-- Damage multiplier (optional)
-    inst.components.combat.damagemultiplier = 1
-
+	inst.components.health:SetMaxHealth(200)
+	inst.components.hunger:SetMax(200)
+	inst.components.sanity:SetMax(200)
+    inst.components.combat.damagemultiplier = 0.9
 	inst.components.locomotor.walkspeed = 6
 	inst.components.locomotor.runspeed = 10
-	
-	-- Hunger rate (optional)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
-
 	inst.OnLoad = onload
-    inst.OnNewSpawn = onload
-	
+    inst.OnNewSpawn = onload	
+
+	inst:WatchWorldState("phase", updatelight)
 end
 
 return MakePlayerCharacter("faye", prefabs, assets, common_postinit, master_postinit, prefabs)

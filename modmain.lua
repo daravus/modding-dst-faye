@@ -1,9 +1,12 @@
 PrefabFiles = {
 	"faye",
 	"faye_none",
+	-- "faye_hairpin",
 }
 
 Assets = {
+    -- Asset( "ANIM",  "anim/faye_.zip"),
+
     Asset( "IMAGE", "images/saveslot_portraits/faye.tex" ),
     Asset( "ATLAS", "images/saveslot_portraits/faye.xml" ),
 
@@ -92,4 +95,12 @@ AddModCharacter("faye", "FEMALE", skin_modes)
 -- 			end
 -- 		end
 -- 	end
+-- end)
+
+
+
+-- AddSimPostInit( function()
+-- 	local player_pos = GLOBAL.GetPlayer():GetPosition()
+-- 	local hat = GLOBAL.SpawnPrefab('faye_hairpin')
+-- 	hat.Transform:SetPosition(player_pos.x, player_pos.y, player_pos.z)
 -- end)
