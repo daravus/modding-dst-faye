@@ -1,43 +1,44 @@
 PrefabFiles = {
 	"faye",
 	"faye_none",
-	-- "faye_hairpin",
+	-- "faye_amulet",
+	"faye_hairpin",
 }
 
 Assets = {
     -- Asset( "ANIM",  "anim/faye_.zip"),
 
-    Asset( "IMAGE", "images/saveslot_portraits/faye.tex" ),
-    Asset( "ATLAS", "images/saveslot_portraits/faye.xml" ),
-
     Asset( "IMAGE", "bigportraits/faye.tex" ),
     Asset( "ATLAS", "bigportraits/faye.xml" ),
 
-	Asset( "IMAGE", "images/map_icons/faye.tex" ),
-	Asset( "ATLAS", "images/map_icons/faye.xml" ),
-
-	Asset( "IMAGE", "images/avatars/avatar_faye.tex" ),
+    Asset( "IMAGE", "images/avatars/avatar_faye.tex" ),
     Asset( "ATLAS", "images/avatars/avatar_faye.xml" ),
-	
 	Asset( "IMAGE", "images/avatars/avatar_ghost_faye.tex" ),
     Asset( "ATLAS", "images/avatars/avatar_ghost_faye.xml" ),
-	
 	Asset( "IMAGE", "images/avatars/self_inspect_faye.tex" ),
     Asset( "ATLAS", "images/avatars/self_inspect_faye.xml" ),
-
-	Asset( "IMAGE", "images/names_faye.tex" ),
-    Asset( "ATLAS", "images/names_faye.xml" ),
-
+	Asset( "ATLAS", "images/inventoryimages/faye_hairpin.xml"),
+    Asset( "IMAGE", "images/inventoryimages/faye_hairpin.tex"),
+	-- Asset( "ATLAS", "images/inventoryimages/faye_amulet.xml"),
+    -- Asset( "IMAGE", "images/inventoryimages/faye_amulet.tex"),
+	Asset( "IMAGE", "images/map_icons/faye.tex" ),
+	Asset( "ATLAS", "images/map_icons/faye.xml" ),
+    Asset( "IMAGE", "images/saveslot_portraits/faye.tex" ),
+    Asset( "ATLAS", "images/saveslot_portraits/faye.xml" ),
     Asset( "IMAGE", "images/selectscreen_portraits/faye.tex" ),
     Asset( "ATLAS", "images/selectscreen_portraits/faye.xml" ),
-	
     Asset( "IMAGE", "images/selectscreen_portraits/faye_silho.tex" ),
     Asset( "ATLAS", "images/selectscreen_portraits/faye_silho.xml" ),
+	Asset( "IMAGE", "images/names_faye.tex" ),
+    Asset( "ATLAS", "images/names_faye.xml" ),
 
     Asset( "SOUNDPACKAGE", "sound/faye.fev" ),
     Asset( "SOUND", "sound/faye.fsb" ),
 
 }
+
+AddMinimapAtlas("images/inventoryimages/faye_hairpin.xml")
+AddMinimapAtlas("images/inventoryimages/faye_amulet.xml")
 
 RemapSoundEvent( "dontstarve/characters/faye", "faye/faye" )
 RemapSoundEvent( "dontstarve/characters/faye/talk_LP", "faye/faye/talk_LP" )
@@ -50,8 +51,12 @@ RemapSoundEvent( "dontstarve/characters/faye/yawn", "faye/faye/yawn" )
 
 AddMinimapAtlas("images/map_icons/faye.xml")
 
+-- Declare global variables
 local require = GLOBAL.require
 local STRINGS = GLOBAL.STRINGS
+local Ingredient = GLOBAL.Ingredient
+local RECIPETABS = GLOBAL.RECIPETABS
+local TECH = GLOBAL.TECH
 
 -- The character select screen lines
 STRINGS.CHARACTER_TITLES.faye = "The Modern Witch"
@@ -59,6 +64,39 @@ STRINGS.CHARACTER_NAMES.faye = "Faye"
 STRINGS.CHARACTER_DESCRIPTIONS.faye = "*Is a rune charmer\n*Can befriend bats\n*Asian cuisine expert"
 STRINGS.CHARACTER_QUOTES.faye = "\"Quote\""
 STRINGS.CHARACTER_SURVIVABILITY.faye = "Very probable"
+
+-- Custom strings!
+STRINGS.NAMES.FAYE_HAIRPIN = "Batilisk Hairpin"
+STRINGS.RECIPE_DESC.FAYE_HAIRPIN = "Now you're flying with magic"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_HAIRPIN = "That's one scientific hat." -- change later
+
+STRINGS.NAMES.FAYE_AMULET = "Custom Armor"
+STRINGS.RECIPE_DESC.FAYE_AMULET = "Every nigth's a breeze with these"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_AMULET = "That's one scientific armor." -- change later
+
+AddRecipe("faye_hairpin",
+{ Ingredient("cutgrass", 1), Ingredient("twigs", 1) },
+RECIPETABS.DRESS,
+TECH.NONE,
+nil,
+nil,
+nil,
+nil,
+nil, -- <- Custom character tag would go here if you wanted only that character to craft your item
+"images/inventoryimages/faye_hairpin.xml")
+
+AddRecipe("faye_amulet",
+{ Ingredient("cutgrass", 1), Ingredient("twigs", 1)},
+RECIPETABS.WAR,
+TECH.NONE,
+nil,
+nil,
+nil,
+nil,
+nil, -- <- Custom character tag would go here if you wanted only that character to craft your item
+"images/inventoryimages/faye_amulet.xml")
+
+
 
 -- Custom speech strings
 STRINGS.CHARACTERS.FAYE = require "speech_faye"
