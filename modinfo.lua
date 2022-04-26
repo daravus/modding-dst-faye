@@ -1,6 +1,6 @@
-name = "Faye Salem"
+name = "Faye Salem the Runic Witch"
 description = "Faye Salem character mod, have fun"
-author = "Faye Salem & daravus"
+author = "@fayesalem & @ioanlee"
 version = "1.0"
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
@@ -22,7 +22,13 @@ icon = "modicon.tex"
 
 -- The mod's tags displayed on the server list
 server_filter_tags = {
-"character",
+    "character",
+    "custom",
+    "faye",
+    "fayesalem",
+    "faye salem",
+    "witch",
+    "magic",
 }
 
 --configuration_options = {}

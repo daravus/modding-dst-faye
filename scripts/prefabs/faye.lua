@@ -68,6 +68,7 @@ local common_postinit = function(inst)
 	
 	-- Minimap icon
 	-- inst.MiniMapEntity:SetIcon( "faye.tex" )
+	-- inst:Addtag("faye") -- enabling this crashes world loading, why?
 end
 
 local master_postinit = function(inst)

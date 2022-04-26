@@ -3,6 +3,7 @@ PrefabFiles = {
 	"faye_none",
 	-- "faye_amulet",
 	"faye_hairpin",
+    -- "faye_amuletlight",
 }
 
 Assets = {
@@ -59,44 +60,33 @@ local RECIPETABS = GLOBAL.RECIPETABS
 local TECH = GLOBAL.TECH
 
 -- The character select screen lines
-STRINGS.CHARACTER_TITLES.faye = "The Modern Witch"
+STRINGS.CHARACTER_TITLES.faye = "The Lune Witch"
 STRINGS.CHARACTER_NAMES.faye = "Faye"
-STRINGS.CHARACTER_DESCRIPTIONS.faye = "*Is a rune charmer\n*Can befriend bats\n*Asian cuisine expert"
+STRINGS.CHARACTER_DESCRIPTIONS.faye = "Is a rune charmer\nCan befriend bats\nAsian cuisine expert"
 STRINGS.CHARACTER_QUOTES.faye = "\"Quote\""
 STRINGS.CHARACTER_SURVIVABILITY.faye = "Very probable"
 
 -- Custom strings!
 STRINGS.NAMES.FAYE_HAIRPIN = "Batilisk Hairpin"
 STRINGS.RECIPE_DESC.FAYE_HAIRPIN = "Now you're flying with magic"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_HAIRPIN = "That's one scientific hat." -- change later
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_HAIRPIN = "Now you're flying with magic." -- change later
 
-STRINGS.NAMES.FAYE_AMULET = "Custom Armor"
+STRINGS.NAMES.FAYE_AMULET = "Runic Amulet"
 STRINGS.RECIPE_DESC.FAYE_AMULET = "Every nigth's a breeze with these"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_AMULET = "That's one scientific armor." -- change later
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_AMULET = "Every nigth's a breeze with these." -- change later
 
-AddRecipe("faye_hairpin",
-{ Ingredient("cutgrass", 1), Ingredient("twigs", 1) },
-RECIPETABS.DRESS,
-TECH.NONE,
-nil,
-nil,
-nil,
-nil,
-nil, -- <- Custom character tag would go here if you wanted only that character to craft your item
-"images/inventoryimages/faye_hairpin.xml")
+-- AddRecipe() работает только таким стаком почему-то, разобраться потом
+AddRecipe("faye_amulet", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, "faye", "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
+AddRecipe("faye_amulet", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil,    "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
 
-AddRecipe("faye_amulet",
-{ Ingredient("cutgrass", 1), Ingredient("twigs", 1)},
-RECIPETABS.WAR,
-TECH.NONE,
-nil,
-nil,
-nil,
-nil,
-nil, -- <- Custom character tag would go here if you wanted only that character to craft your item
-"images/inventoryimages/faye_amulet.xml")
+AddRecipe("faye_hairpin", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, "faye", "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
+AddRecipe("faye_hairpin", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil,    "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
 
-
+-- AddRecipe(
+--     "faye_hairpin", { Ingredient("cutgrass", 1), Ingredient("twigs", 1)},
+--     RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil, -- <- Custom character tag would go here if you wanted only that character to craft your item
+--     "images/inventoryimages/faye_hairpin.xml"
+-- )
 
 -- Custom speech strings
 STRINGS.CHARACTERS.FAYE = require "speech_faye"
