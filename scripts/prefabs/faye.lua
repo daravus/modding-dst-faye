@@ -52,7 +52,6 @@ local function onload(inst)
     end
 end
 
-
 local function updatelight(inst, phase)
     if phase == "day" then
         inst.Light:Enable(false) 
@@ -61,14 +60,11 @@ local function updatelight(inst, phase)
     end
 end
 
-
 local common_postinit = function(inst)
+	inst.MiniMapEntity:SetIcon( "faye.tex") -- Minimap icon
+	inst:AddTag("faye")
 
     -- updatelight(inst, TheWorld.state.phase)
-	
-	-- Minimap icon
-	-- inst.MiniMapEntity:SetIcon( "faye.tex" )
-	-- inst:Addtag("faye") -- enabling this crashes world loading, why?
 end
 
 local master_postinit = function(inst)

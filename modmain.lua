@@ -75,12 +75,12 @@ STRINGS.NAMES.FAYE_AMULET = "Runic Amulet"
 STRINGS.RECIPE_DESC.FAYE_AMULET = "Every nigth's a breeze with these"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.FAYE_AMULET = "Every nigth's a breeze with these." -- change later
 
--- AddRecipe() работает только таким стаком почему-то, разобраться потом
+-- AddRecipe() работает только таким стаком (2 почти одинаковые функции идущие в таком порядке) почему-то, разобраться потом
 AddRecipe("faye_amulet", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, "faye", "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
-AddRecipe("faye_amulet", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil,    "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
+-- AddRecipe("faye_amulet", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil,    "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
 
 AddRecipe("faye_hairpin", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, "faye", "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
-AddRecipe("faye_hairpin", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil,    "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
+-- AddRecipe("faye_hairpin", { Ingredient("cutgrass", 2), Ingredient("twigs", 1) }, RECIPETABS.DRESS, TECH.NONE, nil, nil, nil, 1, nil,    "images/inventoryimages/faye_amulet.xml", "faye_amulet.tex")
 
 -- AddRecipe(
 --     "faye_hairpin", { Ingredient("cutgrass", 1), Ingredient("twigs", 1)},
